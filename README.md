@@ -122,6 +122,8 @@ ScalarValue(data=5.5)
 ![Computation Graph](output/example_vis.png "Computation Graph")
 
 
+- A full pytorch like training example with multiple epochs is implemented in `example_nn_minibatch_epoch.py`. It saves computation graph for loss, backward, optimizer update etc in different intervals.
+
 ## Todo
 
 - Look for mistakes in implementation.
