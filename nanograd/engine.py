@@ -32,7 +32,7 @@ class ScalarValue:
         Examples:
             >>> from rich import print as rprint
             >>> rprint(ScalarValue(2))
-            ScalarValue(data=2, children=(), op=None)
+            ScalarValue(data=2, grad=0.0, label=None, children=(), op=None)
         """
         yield "data", self.data
         yield "grad", self.grad
