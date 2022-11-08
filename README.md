@@ -31,3 +31,4 @@ pip uninstall nanograd
 
 - https://github.com/karpathy/micrograd
 - https://www.youtube.com/watch?v=VMj-3S1tku0
+- https://pytorch.org/docs/stable/torch.html
