@@ -32,6 +32,25 @@ If unable to uninstall terminal, vscode or pycharm etc. must be closed or cd to 
   ```
 - Move examples out to parent nanograd folder and run. Installation not required.
 
+## Examples
+
+- Computation graph of some functions of a network in `example_vis.py` as well as symbolic derivative calculation example in `example_symbolic.py`.
+
+![Random Computation Graph](output/example_vis.png "Random Computation Graph")
+
+- Computation graph of single neuron output with activation and grads in `example_neuron.py`.
+
+![Neuron Computation Graph](output/example_neuron.png "Neuron Computation Graph")
+
+- Computation graph of of an MLP with multiple layers with 5 layers including input layer and neurons per layer [3, 2, 3, 2, 1]. Minibatch of 4 shown in computation graph with weights as data and grads in `example_nn_minibatch.py`.
+
+![Minibatch MLP Computation Graph](output/example_nn_minibatch.png "Minibatch MLP Computation Graph")
+
+
+## Todo
+
+- Look for mistakes in implementation.
+- In visualization model plotting for custom layers show blocks instead of individual neurons.
 
 
 ## References
