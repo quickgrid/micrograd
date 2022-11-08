@@ -8,14 +8,21 @@ Re-implementation of [micrograd](https://github.com/karpathy/micrograd) by Andre
 python setup.py install
 ```
 
+**For force install without dependencies,**
+```
+pip install --upgrade --force-reinstall --no-deps nanograd
+```
+
 **For uninstall,**
 ```
 pip uninstall nanograd
 ```
 
+If unable to uninstall terminal, vscode or pycharm etc. must be closed or cd to another directory.
+
 ## Running Examples
 
-**To run examples any of the following methods should work,**
+**To run examples any of the following methods should work.**
 - Install nanograd via `setup.py` and run directly.
 - In pycharm right click on parent nanograd folder and mark it as `Sources Root`. IDE errors will be solved and examples can be run directly without install.
 - Add the following on top of each example file and run the file directly from that folder. Installation not required.
