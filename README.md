@@ -8,9 +8,9 @@ Re-implementation of [micrograd](https://github.com/karpathy/micrograd) by Andre
 python setup.py install
 ```
 
-**For force install without dependencies,**
+**For force install without dependencies from setup folder,**
 ```
-pip install --upgrade --force-reinstall --no-deps nanograd
+pip install --upgrade --force-reinstall --no-deps .
 ```
 
 **For uninstall,**
