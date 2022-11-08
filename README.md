@@ -46,6 +46,81 @@ If unable to uninstall terminal, vscode or pycharm etc. must be closed or cd to 
 
 ![Minibatch MLP Computation Graph](output/example_nn_minibatch.png "Minibatch MLP Computation Graph")
 
+- For smaller size networks the computation graph representation can be printed for understanding the opertions in `example_vis.py`. Rich formatted representation and computation graph,
+```
+ScalarValue(
+    data=52.0,
+    grad=1.0,
+    label='out',
+    children=(
+        ScalarValue(
+            data=13.0,
+            grad=4.0,
+            label='e',
+            children=(
+                ScalarValue(
+                    data=10.0,
+                    grad=4.0,
+                    label='d',
+                    children=(
+                        ScalarValue(
+                            data=5.0,
+                            grad=8.0,
+                            label='a',
+                            children=(),
+                            op=None
+                        ),
+                        ScalarValue(
+                            data=2,
+                            grad=33.0,
+                            label='b',
+                            children=(),
+                            op=None
+                        )
+                    ),
+                    op='*'
+                ),
+                ScalarValue(
+                    data=3,
+                    grad=4.0,
+                    label='c',
+                    children=(),
+                    op=None
+                )
+            ),
+            op='+'
+        ),
+        ScalarValue(
+            data=4.0,
+            grad=13.0,
+            label='f',
+            children=(
+                ScalarValue(
+                    data=2.0,
+                    grad=13.0,
+                    label='k',
+                    children=(),
+                    op=None
+                ),
+                ScalarValue(
+                    data=2,
+                    grad=33.0,
+                    label='b',
+                    children=(),
+                    op=None
+                )
+            ),
+            op='+'
+        )
+    ),
+    op='*'
+)
+ScalarValue(data=5.5)
+```
+
+
+![Computation Graph](output/example_vis.png "Computation Graph")
+
 
 ## Todo
 
