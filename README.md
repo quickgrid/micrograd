@@ -34,7 +34,7 @@ If unable to uninstall terminal, vscode or pycharm etc. must be closed or cd to 
 
 ## Examples
 
-- Computation graph of some functions of a network in `example_vis.py` as well as symbolic derivative calculation example in `example_symbolic.py`.
+- Computation graph of some functions of a network in `example_vis.py` as well as symbolic derivative calculation example in `example_symbolic.py`. Grads shown here are calculated against `out`.
 
 ![Random Computation Graph](output/example_vis.png "Random Computation Graph")
 
@@ -42,7 +42,7 @@ If unable to uninstall terminal, vscode or pycharm etc. must be closed or cd to 
 
 ![Neuron Computation Graph](output/example_neuron.png "Neuron Computation Graph")
 
-- Computation graph of of an MLP with multiple layers with 5 layers including input layer and neurons per layer [3, 2, 3, 2, 1]. Minibatch of 4 shown in computation graph with weights as data and grads in `example_nn_minibatch.py`.
+- Computation graph of of an MLP with multiple layers with 5 layers including input layer and neurons per layer [3, 2, 3, 2, 1]. Minibatch of 4 shown in computation graph with weights as data and grads in `example_nn_minibatch.py`. Grads calculated against the loss output.
 
 ![Minibatch MLP Computation Graph](output/example_nn_minibatch.png "Minibatch MLP Computation Graph")
 
