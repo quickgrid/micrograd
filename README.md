@@ -3,12 +3,12 @@ Re-implementation of [micrograd](https://github.com/karpathy/micrograd) by Andre
 
 ## Installation
 
-For install,
+**For install,**
 ```
 python setup.py install
 ```
 
-For uninstall,
+**For uninstall,**
 ```
 pip uninstall nanograd
 ```
