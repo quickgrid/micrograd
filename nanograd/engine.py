@@ -35,6 +35,8 @@ class ScalarValue:
             ScalarValue(data=2, children=(), op=None)
         """
         yield "data", self.data
+        yield "grad", self.grad
+        yield "label", self.label
         yield "children", self._prev
         yield "op", self._op
 
