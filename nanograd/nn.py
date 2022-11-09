@@ -1,7 +1,7 @@
 import random
 from typing import List
 
-from .engine import ScalarValue
+from .scalar import Scalar
 
 
 class Module:
@@ -28,8 +28,8 @@ class Module:
 class Neuron(Module):
     def __init__(self, input_count: int):
         super(Neuron, self).__init__()
-        self.w = [ScalarValue(data=random.uniform(-1, 1)) for _ in range(input_count)]
-        self.b = ScalarValue(data=random.uniform(-1, 1))
+        self.w = [Scalar(data=random.uniform(-1, 1)) for _ in range(input_count)]
+        self.b = Scalar(data=random.uniform(-1, 1))
 
     def forward(self, x):
         """Upon input calculates single neuron activation with non-linearity.

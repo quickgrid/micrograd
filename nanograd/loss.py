@@ -1,7 +1,7 @@
 from typing import List, Union
 
 from .nn import Module
-from .engine import ScalarValue
+from .scalar import Scalar
 
 
 class _Loss(Module):
@@ -18,10 +18,10 @@ class MSELoss(_Loss):
 
     def forward(
             self,
-            pred: Union[List[float], ScalarValue, List[ScalarValue]],
-            real: Union[List[float], ScalarValue, List[ScalarValue]]
+            pred: Union[List[float], Scalar, List[Scalar]],
+            real: Union[List[float], Scalar, List[Scalar]]
     ):
-        if isinstance(pred, ScalarValue):
+        if isinstance(pred, Scalar):
             return (pred - real) ** 2
         else:
             return sum((((y_pred - y_real) ** 2) for y_real, y_pred in zip(real, pred)))

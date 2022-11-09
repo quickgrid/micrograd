@@ -4,7 +4,7 @@ from typing import Tuple
 import rich.repr
 
 
-class ScalarValue:
+class Scalar:
     _compact_print: bool = True
 
     def __init__(self, data, label: str = None, _children: Tuple = (), _op: str = None):
@@ -31,8 +31,8 @@ class ScalarValue:
 
         Examples:
             >>> from rich import print as rprint
-            >>> rprint(ScalarValue(2))
-            ScalarValue(data=2, children=(), op=None)
+            >>> rprint(Scalar(2))
+            Scalar(data=2, grad=0.0, label=None, children=(), op=None)
         """
         yield "data", self.data
         yield "grad", self.grad
@@ -41,11 +41,11 @@ class ScalarValue:
         yield "op", self._op
 
     def __add__(self, other):
-        """Forward pass of adding two ScalarValue with backward pass implemented as closure. Internal `_backward`
+        """Forward pass of adding two Scalar with backward pass implemented as closure. Internal `_backward`
         function is not meant to be called by user other than debugging.
         """
-        other = other if isinstance(other, ScalarValue) else ScalarValue(data=other)
-        out = ScalarValue(data=self.data + other.data, _children=(self, other), _op='+')
+        other = other if isinstance(other, Scalar) else Scalar(data=other)
+        out = Scalar(data=self.data + other.data, _children=(self, other), _op='+')
 
         def _backward():
             """For add operation out node gradient flows backward to self and other node with same value. `.data` is
@@ -76,8 +76,8 @@ class ScalarValue:
         return out
 
     def __mul__(self, other):
-        other = other if isinstance(other, ScalarValue) else ScalarValue(data=other)
-        out = ScalarValue(data=self.data * other.data, _children=(self, other), _op='*')
+        other = other if isinstance(other, Scalar) else Scalar(data=other)
+        out = Scalar(data=self.data * other.data, _children=(self, other), _op='*')
 
         def _backward():
             """Local derivative of `out` with respect self and other are,
@@ -105,7 +105,7 @@ class ScalarValue:
 
     def __pow__(self, power, modulo=None):
         assert isinstance(power, (int, float)), 'Only int or float supported for power.'
-        out = ScalarValue(data=self.data ** power, _children=(self, ), _op=f'**{power}')
+        out = Scalar(data=self.data ** power, _children=(self,), _op=f'**{power}')
 
         def _backward():
             """Calculus derivative formula, 3x^4 = 3*4*x^(4-1) = 12x^3.
@@ -120,7 +120,7 @@ class ScalarValue:
         """
         out = math.exp(2 * self.data)
         out = (out - 1) / (out + 1)
-        out = ScalarValue(data=out, _children=(self,), _op='tanh')
+        out = Scalar(data=out, _children=(self,), _op='tanh')
 
         def _backward():
             self.grad += (1 - (out.data ** 2)) * out.grad
@@ -129,7 +129,7 @@ class ScalarValue:
         return out
 
     def exp(self):
-        out = ScalarValue(data=math.exp(self.data), _children=(self,), _op='tanh')
+        out = Scalar(data=math.exp(self.data), _children=(self,), _op='tanh')
 
         def _backward():
             self.grad += out.data * out.grad

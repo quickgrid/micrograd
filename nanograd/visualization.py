@@ -2,14 +2,14 @@ from typing import Set, Tuple
 
 from graphviz import Digraph
 
-from .engine import ScalarValue
+from .scalar import Scalar
 
 
-def trace(root: ScalarValue) -> [Set[ScalarValue], Set[Tuple[ScalarValue, ScalarValue]]]:
+def trace(root: Scalar) -> [Set[Scalar], Set[Tuple[Scalar, Scalar]]]:
     nodes = set()
     edges = set()
 
-    def build(v: ScalarValue):
+    def build(v: Scalar):
         if v not in nodes:
             nodes.add(v)
             for child in v._prev:
@@ -20,7 +20,7 @@ def trace(root: ScalarValue) -> [Set[ScalarValue], Set[Tuple[ScalarValue, Scalar
     return nodes, edges
 
 
-def plot_model(root: ScalarValue, img_format: str = 'png', rankdir: str = 'LR') -> Digraph:
+def plot_model(root: Scalar, img_format: str = 'png', rankdir: str = 'LR') -> Digraph:
     """ Outputs an image from graph with chosen format.
 
     Args:
@@ -45,6 +45,6 @@ def plot_model(root: ScalarValue, img_format: str = 'png', rankdir: str = 'LR') 
     return dot
 
 
-def save_plot(filename: str, directory: str, expression: ScalarValue) -> None:
+def save_plot(filename: str, directory: str, expression: Scalar) -> None:
     dot = plot_model(expression)
     dot.render(filename=filename, directory=directory)

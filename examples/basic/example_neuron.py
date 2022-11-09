@@ -1,15 +1,15 @@
-from nanograd.engine import ScalarValue
+from nanograd.scalar import Scalar
 from nanograd.visualization import save_plot
 
 
 # Forward pass.
-x1 = ScalarValue(2.0, label='x1')
-x2 = ScalarValue(-4.0, label='x2')
+x1 = Scalar(2.0, label='x1')
+x2 = Scalar(-4.0, label='x2')
 
-w1 = ScalarValue(-3.0, label='w1')
-w2 = ScalarValue(1.0, label='w2')
+w1 = Scalar(-3.0, label='w1')
+w2 = Scalar(1.0, label='w2')
 
-b = ScalarValue(6.875, label='b')
+b = Scalar(6.875, label='b')
 
 x1w1 = x1 * w1
 x1w1.label = 'x1w1'

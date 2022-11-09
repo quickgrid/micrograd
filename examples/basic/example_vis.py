@@ -1,12 +1,12 @@
 from rich import print as rprint
 
 from nanograd.visualization import plot_model, save_plot
-from nanograd.engine import ScalarValue
+from nanograd.scalar import Scalar
 
 
-a = ScalarValue(5.0, label='a')
-b = ScalarValue(2, label='b')
-c = ScalarValue(3, label='c')
+a = Scalar(5.0, label='a')
+b = Scalar(2, label='b')
+c = Scalar(3, label='c')
 
 d = a * b
 d.label = 'd'
@@ -14,7 +14,7 @@ d.label = 'd'
 e = d + c
 e.label = 'e'
 
-f = ScalarValue(2.0, label='k') + b
+f = Scalar(2.0, label='k') + b
 f.label = 'f'
 
 out = e * f
@@ -29,7 +29,7 @@ print(out._op)
 
 rprint(out)
 
-t = ScalarValue(4.5)
+t = Scalar(4.5)
 print(1 + t)
 
 # dot = plot_model(out)
