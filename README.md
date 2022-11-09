@@ -8,9 +8,9 @@ Re-implementation of [micrograd](https://github.com/karpathy/micrograd) by Andre
 python setup.py install
 ```
 
-**For force install without dependencies,**
+**For force install without dependencies from setup folder,**
 ```
-pip install --upgrade --force-reinstall --no-deps nanograd
+pip install --upgrade --force-reinstall --no-deps .
 ```
 
 **For uninstall,**
@@ -34,93 +34,94 @@ If unable to uninstall terminal, vscode or pycharm etc. must be closed or cd to 
 
 ## Examples
 
-- Computation graph of some functions of a network in `example_vis.py` as well as symbolic derivative calculation example in `example_symbolic.py`.
-
-![Random Computation Graph](output/example_vis.png "Random Computation Graph")
-
 - Computation graph of single neuron output with activation and grads in `example_neuron.py`.
 
-![Neuron Computation Graph](output/example_neuron.png "Neuron Computation Graph")
+  ![Neuron Computation Graph](output/example_neuron.png "Neuron Computation Graph")
 
-- Computation graph of of an MLP with multiple layers with 5 layers including input layer and neurons per layer [3, 2, 3, 2, 1]. Minibatch of 4 shown in computation graph with weights as data and grads in `example_nn_minibatch.py`.
+- Computation graph of of an MLP with multiple layers with 5 layers including input layer and neurons per layer [3, 2, 3, 2, 1]. Minibatch of 4 shown in computation graph with weights as data and grads in `example_nn_minibatch.py`. Grads calculated against the loss output.
 
-![Minibatch MLP Computation Graph](output/example_nn_minibatch.png "Minibatch MLP Computation Graph")
+  ![Minibatch MLP Computation Graph](output/example_nn_minibatch.png "Minibatch MLP Computation Graph")
 
 - For smaller size networks the computation graph representation can be printed for understanding the opertions in `example_vis.py`. Rich formatted representation and computation graph,
-```
-ScalarValue(
-    data=52.0,
-    grad=1.0,
-    label='out',
-    children=(
-        ScalarValue(
-            data=13.0,
-            grad=4.0,
-            label='e',
-            children=(
-                ScalarValue(
-                    data=10.0,
-                    grad=4.0,
-                    label='d',
-                    children=(
-                        ScalarValue(
-                            data=5.0,
-                            grad=8.0,
-                            label='a',
-                            children=(),
-                            op=None
-                        ),
-                        ScalarValue(
-                            data=2,
-                            grad=33.0,
-                            label='b',
-                            children=(),
-                            op=None
-                        )
-                    ),
-                    op='*'
-                ),
-                ScalarValue(
-                    data=3,
-                    grad=4.0,
-                    label='c',
-                    children=(),
-                    op=None
-                )
-            ),
-            op='+'
-        ),
-        ScalarValue(
-            data=4.0,
-            grad=13.0,
-            label='f',
-            children=(
-                ScalarValue(
-                    data=2.0,
-                    grad=13.0,
-                    label='k',
-                    children=(),
-                    op=None
-                ),
-                ScalarValue(
-                    data=2,
-                    grad=33.0,
-                    label='b',
-                    children=(),
-                    op=None
-                )
-            ),
-            op='+'
-        )
-    ),
-    op='*'
-)
-ScalarValue(data=5.5)
-```
 
 
-![Computation Graph](output/example_vis.png "Computation Graph")
+  ![Computation Graph](output/example_vis.png "Computation Graph")
 
+  ```
+  ScalarValue(
+      data=52.0,
+      grad=1.0,
+      label='out',
+      children=(
+          ScalarValue(
+              data=13.0,
+              grad=4.0,
+              label='e',
+              children=(
+                  ScalarValue(
+                      data=10.0,
+                      grad=4.0,
+                      label='d',
+                      children=(
+                          ScalarValue(
+                              data=5.0,
+                              grad=8.0,
+                              label='a',
+                              children=(),
+                              op=None
+                          ),
+                          ScalarValue(
+                              data=2,
+                              grad=33.0,
+                              label='b',
+                              children=(),
+                              op=None
+                          )
+                      ),
+                      op='*'
+                  ),
+                  ScalarValue(
+                      data=3,
+                      grad=4.0,
+                      label='c',
+                      children=(),
+                      op=None
+                  )
+              ),
+              op='+'
+          ),
+          ScalarValue(
+              data=4.0,
+              grad=13.0,
+              label='f',
+              children=(
+                  ScalarValue(
+                      data=2.0,
+                      grad=13.0,
+                      label='k',
+                      children=(),
+                      op=None
+                  ),
+                  ScalarValue(
+                      data=2,
+                      grad=33.0,
+                      label='b',
+                      children=(),
+                      op=None
+                  )
+              ),
+              op='+'
+          )
+      ),
+      op='*'
+  )
+  ScalarValue(data=5.5)
+  ```
+
+
+- Computation graph of some functions of a network in `example_vis.py` as well as symbolic derivative calculation example in `example_symbolic.py`.
+
+- A full pytorch like training example with multiple epochs is implemented in `example_nn_minibatch_epoch.py`. It saves computation graph for loss, backward, optimizer update etc in different intervals.
 
 ## Todo
 
