@@ -1,5 +1,5 @@
 from nanograd.nn import MLP
-from nanograd.optimizer import SGD
+from nanograd.optimizer import GradientDescent
 from nanograd.loss import MSELoss
 from nanograd.visualization import save_plot
 
@@ -25,7 +25,7 @@ epochs = 50
 lr = 0.01
 plot_graph_at_epoch = [10, 30]
 
-optimizer = SGD(params=n.parameters(), lr=lr)
+optimizer = GradientDescent(params=n.parameters(), lr=lr)
 mse_loss = MSELoss()
 
 

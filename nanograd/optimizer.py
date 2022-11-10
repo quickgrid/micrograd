@@ -13,9 +13,9 @@ class Optimizer:
                 p.grad = 0
 
 
-class SGD(Optimizer):
+class GradientDescent(Optimizer):
     def __init__(self, params, lr: float = 0.001):
-        super(SGD, self).__init__(params=params)
+        super(GradientDescent, self).__init__(params=params)
         self.lr = lr
 
     def step(self):

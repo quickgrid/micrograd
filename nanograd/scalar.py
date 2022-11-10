@@ -155,6 +155,8 @@ class Scalar:
             v._backward()
 
     def __radd__(self, other):
+        """For cases when left variable/value in not of current type.
+        """
         return self + other
 
     def __rmul__(self, other):
