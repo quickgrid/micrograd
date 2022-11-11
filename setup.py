@@ -4,7 +4,7 @@ setup(
     name='nanograd',
     author='Asif Ahmed',
     description='Re-implementation of micrograd library with pytorch api like autograd engine and neural nets.',
-    version='0.0.1',
+    version='0.1.0',
     url='https://github.com/quickgrid/nanograd',
     packages=find_packages(),
     classifiers=[
